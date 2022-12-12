@@ -1,0 +1,12 @@
+.item {
+  height: 35px;
+}
+
+.text {
+  display: inline-block;
+}
+
+.button {
+  display: inline-block;
+  margin-left: 30px;
+}
