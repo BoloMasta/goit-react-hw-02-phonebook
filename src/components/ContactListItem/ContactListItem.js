@@ -1,4 +1,5 @@
 import css from './ContactListItem.module.css';
+import PropTypes from 'prop-types';
 
 export const ContactListItem = ({ contact, onRemoveContact }) => (
   <li className={css.item}>
@@ -14,3 +15,12 @@ export const ContactListItem = ({ contact, onRemoveContact }) => (
     </button>
   </li>
 );
+
+ContactListItem.propTypes = {
+  contact: PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+    number: PropTypes.string,
+  }),
+  onRemoveContact: PropTypes.func,
+};

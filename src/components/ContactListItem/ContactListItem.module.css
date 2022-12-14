@@ -9,4 +9,15 @@
 .button {
   display: inline-block;
   margin-left: 30px;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  padding: 3px 8px;
+}
+
+.button:hover {
+  background-color: #333;
 }
