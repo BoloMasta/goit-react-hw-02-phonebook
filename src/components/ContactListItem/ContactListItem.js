@@ -6,6 +6,7 @@ export const ContactListItem = ({ contact, onRemoveContact }) => (
     <p className={css.text}>
       {contact.name}: {contact.number}
     </p>
+
     <button
       className={css.button}
       type="button"

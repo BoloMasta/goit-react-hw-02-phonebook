@@ -1,6 +1,8 @@
 import css from './ContactList.module.css';
 import PropTypes from 'prop-types';
+
 import { ContactListItem } from 'components/ContactListItem/ContactListItem';
+import { Notification } from 'components/Notification/Notification';
 
 export const ContactList = ({ contacts, onRemoveContact, filter }) => {
   const filteredContacts = contacts.filter(contact =>
@@ -8,15 +10,21 @@ export const ContactList = ({ contacts, onRemoveContact, filter }) => {
   );
 
   return (
-    <ul className={css.list}>
-      {filteredContacts.map(({ id, name, number }) => (
-        <ContactListItem
-          key={id}
-          contact={{ id, name, number }}
-          onRemoveContact={onRemoveContact}
-        />
-      ))}
-    </ul>
+    <>
+      {contacts.length === 0 ? (
+        <Notification message="No contacts yet" />
+      ) : (
+        <ul className={css.list}>
+          {filteredContacts.map(({ id, name, number }) => (
+            <ContactListItem
+              key={id}
+              contact={{ id, name, number }}
+              onRemoveContact={onRemoveContact}
+            />
+          ))}
+        </ul>
+      )}
+    </>
   );
 };
 

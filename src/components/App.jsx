@@ -16,7 +16,11 @@ export class App extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    const { name, number } = event.target;
+
+    const form = event.target;
+    const name = form.elements.name;
+    const number = form.elements.number;
+
     const contact = {
       name: name.value,
       number: number.value,
@@ -32,8 +36,7 @@ export class App extends Component {
       contacts: [...prevState.contacts, contact],
     }));
 
-    name.value = '';
-    number.value = '';
+    form.reset();
   };
 
   onRemoveContact = id => {
@@ -49,11 +52,12 @@ export class App extends Component {
   render() {
     return (
       <>
-        <h1>Phonebook</h1>
+        <h1>Phonebook ☎️</h1>
         <ContactForm onSubmit={this.onSubmit} />
 
         <h2>Contacts</h2>
         <Filter value={this.state.filter} onChange={this.onChange} />
+
         <ContactList
           contacts={this.state.contacts}
           onRemoveContact={this.onRemoveContact}

@@ -2,8 +2,19 @@
   height: 35px;
 }
 
+.item::marker {
+  content: '🔸';
+}
+
+.item:nth-child(2n)::marker {
+  content: '🔹';
+}
+
 .text {
   display: inline-block;
+  margin-left: 10px;
+  border: none;
+  outline: none;
 }
 
 .button {
