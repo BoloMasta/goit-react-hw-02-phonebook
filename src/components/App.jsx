@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { nanoid } from 'nanoid';
 
 import { ContactForm } from './ContactForm/ContactForm';
@@ -6,20 +6,16 @@ import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 
 export class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      contacts: [],
-      filter: '',
-    };
-  }
+  state = {
+    contacts: [],
+    filter: '',
+  };
 
   onSubmit = event => {
     event.preventDefault();
 
     const form = event.target;
-    const name = form.elements.name;
-    const number = form.elements.number;
+    const { name, number } = form.elements;
 
     const contact = {
       name: name.value,
